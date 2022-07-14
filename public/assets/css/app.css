@@ -1,0 +1,116 @@
+*{
+    --twine: #be995e;
+--cod-gray: #141414;
+--tacao: #f0be7c;
+--yellow-metal: #6d5a3c;
+--shadow: #847454;
+--birch: #3d3326;
+--kelp: #44442c;
+--potters-clay: #8c643c;
+--rangitoto: #2c2c23;
+--taupe: #4c4434;
+scroll-behavior: smooth;
+}
+.masthead{
+    padding-bottom: 20px;
+}
+.color-text-1{
+    color: #141414!important;
+}
+.flex-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.bg-color-nav{
+    /* background-color: var(--tacao); */
+    border: 0;
+    border-radius: 9px;
+}
+body{
+    overflow-x: hidden;
+    background-color: rgb(255, 253, 251);
+}
+.nav-item:hover{
+    color: #2c2c23;
+}
+.button-primary{
+    background-color: var(--tacao);
+    border: 0;
+}
+.delivery-payment{
+    padding-top: 0px!important;
+}
+.glyph-icon{
+    color: var(--birch);
+}
+#homeDropdownInvoker::after,
+#shopDropdownInvoker::after{
+    display: none;
+}
+
+@media only screen and (max-width:300px) {
+    .pr-7, .px-7 {
+        padding: 3px!important;
+    }
+    .flex-horizontal img{
+        display: none;
+    }
+}
+.row{
+    align-content: space-around;
+    justify-content: space-between;
+}
+.link-white-100{
+    color: white;
+}
+.link-white-100:hover,
+.OnHoverBlack:hover{
+    color: black!important;
+}
+
+
+
+.content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .content-table thead tr {
+ 
+background-color: #f0be7c;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .content-table th,
+  .content-table td {
+    padding: 12px 15px;
+  }
+  
+  .content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #f0be7c;
+    ;
+  }
+  
+  .content-table tbody tr.active-row {
+    font-weight: bold;
+    color:  #f0be7c;
+    ;
+  }
+  .nav-item a.active{border-radius:24px;background: linear-gradient(to right,#2b6fa2,#54479b);}
