@@ -15,7 +15,7 @@ class CreateProductNFTSTable extends Migration
     {
         Schema::create('product_n_f_t_s', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("book_id");
+            $table->string("book_id");
             $table->string("token");
             $table->timestamps();
         });
