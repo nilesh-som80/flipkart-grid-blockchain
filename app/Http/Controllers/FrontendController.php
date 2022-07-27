@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Author;
 use App\Models\Category;
+use App\Models\ProductNFT;
 use App\Models\SellersBook;
 use App\Models\UserAddress;
 use Illuminate\Http\Request;
@@ -435,5 +436,23 @@ class FrontendController extends Controller
 
         return view('user.view_all_book',compact('data'));
 
+    }
+    public function book_by_token(Request $request)
+    {
+        if (!$request->token) {
+            return redirect()->intended('/');
+        }
+        $book_id = ProductNFT::where('token' ,$request->keyword)
+        ->first();
+        if($book_id){
+                $data = Book::where('id',$book_id->book_id)
+                ->get();
+                return view('user.books', compact('data'));
+
+            }
+            else{
+                return redirect()->intended('/');
+
+            }
     }
 }

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\ProductNFT;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -29,6 +30,12 @@ class BookController extends Controller
     {
         $request['book_id'] = "book_" . rand(1000000000, 9999999999);
         Book::create($request->all());
+        ProductNFT::create(
+            [
+                "book_id" => $request->book_id,
+                "token" => Str::random(50),
+            ]
+        );
         return 'New book added';
     }
 
@@ -69,8 +76,9 @@ class BookController extends Controller
 
         return $book->name . " removed";
     }
-    public function searchByBook(Request $request){
-        $data  = Book::where('name', 'LIKE', "%{$request->keyword}%")->paginate(36);
+    public function searchByBook(Request $request)
+    {
+        $data = Book::where('name', 'LIKE', "%{$request->keyword}%")->paginate(36);
         return $data;
     }
 }

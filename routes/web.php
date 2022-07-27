@@ -43,6 +43,8 @@ Route::get('single_product',[FrontendController::class,'single_product']);
 Route::get('t&c',[FrontendController::class,'terms_conditons']);
 Route::get('return_refund',[FrontendController::class,'return_refund']);
 Route::get('books',[FrontendController::class,'books']);
+Route::get('books_by_token',[FrontendController::class,'book_by_token']);
+
 Route::get('book_by_category/{id}',[FrontendController::class,'book_by_category']);
 
 Route::get('book_by_author/{id}',[FrontendController::class,'book_by_author']);

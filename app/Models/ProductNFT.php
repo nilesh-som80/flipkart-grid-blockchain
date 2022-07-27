@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ProductNFT extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "book_id",
+        "token"
+    ];
 }
