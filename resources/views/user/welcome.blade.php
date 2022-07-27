@@ -459,7 +459,7 @@
                             <a href="/index.html" class="d-inline-block mb-5">
                                 <div class="flex-horizontal">
                                     <img src="/assets/img/E_cellLogo.png" alt="" style=" height: 50px; width: 50px; ">
-                                    <h4 style="margin: 0; padding-left: 5px;">E-Cell MANIT</h4>
+                                    <h4 style="margin: 0; padding-left: 5px;">Aditya Niranjan Mishra , Nilesh Sandeep Singh , Prateek Jain and Sandeep Raghuvanshi</h4>
 
                                 </div>
                             </a>
@@ -475,13 +475,13 @@
                                 </span>
                             </address>
                             <div class="mb-4">
-                                <a href="mailto:support@ecellnitb.com" class="font-size-2 d-block link-black-100 mb-1"
+                                {{-- <a href="mailto:support@ecellnitb.com" class="font-size-2 d-block link-black-100 mb-1"
                                     style="text-align: center;">support@ecellnitb.com</a>
                                 <a href="tel:+91 9589255239" class="font-size-2 d-block link-black-100"
                                     style="text-align: center;">+91
-                                    9589255239</a>
+                                    9589255239</a> --}}
                             </div>
-                            <ul class="list-unstyled mb-0 d-flex" style="justify-content: center;">
+                            {{-- <ul class="list-unstyled mb-0 d-flex" style="justify-content: center;">
                                 <li class="btn pl-0">
                                     <a class="link-black-100" href="https://bit.ly/3ifVMTg">
                                         <span class="fab fa-instagram"></span>
@@ -503,11 +503,11 @@
                                         <span class="fab fa-twitter"></span>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> --}}
                         </div>
                     </div>
                     <div class="col-lg-2 mb-6 mb-lg-0" style="color: white!important;">
-                        <h4 class="font-size-3 font-weight-medium mb-2 mb-xl-5 pb-xl-1">Customer Service</h4>
+                        {{-- <h4 class="font-size-3 font-weight-medium mb-2 mb-xl-5 pb-xl-1">Customer Service</h4>
                         <ul class="list-unstyled mb-0" style="color: white!important;">
                             <li class="py-2">
                                 <a class="widgets-hover transition-3d-hover font-size-2 link-black-100"
@@ -522,10 +522,10 @@
                                     href="/contact">Contact</a>
                                 Us</a>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </div>
                     <div class="col-lg-2 mb-6 mb-lg-0" style="color: white!important;">
-                        <h4 class="font-size-3 font-weight-medium mb-2 mb-xl-5 pb-xl-1">Policy</h4>
+                        {{-- <h4 class="font-size-3 font-weight-medium mb-2 mb-xl-5 pb-xl-1">Policy</h4>
                         <ul class="list-unstyled mb-0">
                             <li class="py-2">
                                 <a class="widgets-hover transition-3d-hover font-size-2 link-black-100"
@@ -541,7 +541,7 @@
                                     href="return_refund">Return/Refund
                                     Policy</a>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </div>
                     {{-- <div class="col-lg-2 mb-6 mb-lg-0" style="color: white!important;">
                         <h4 class="font-size-3 font-weight-medium mb-2 mb-xl-5 pb-xl-1">Categories</h4>
@@ -574,7 +574,7 @@
                 <div class="container" style="max-width: 296px;">
                     <div class="d-lg-flex text-center text-lg-left justify-content-between align-items-center"
                         style="color: #ffffff!important">
-                        <p class="mb-3 mb-lg-0 font-size-2">©2021 E-Cell MANIT. All rights reserved</p>
+                        <p class="mb-3 mb-lg-0 font-size-2">©2021 Aditya Nilesh Sandeep and Prateek </p>
                     </div>
                 </div>
             </div>
@@ -595,7 +595,7 @@
     <script src="/assets/js/components/hs.malihu-scrollbar.js"></script>
     <script src="/assets/js/components/hs.slick-carousel.js"></script>
     <script src="/assets/js/components/hs.selectpicker.js"></script>
-    <script src="/assets/js/components/hs.show-animation.js"></script>
+    {{-- <script src="/assets/js/components/hs.show-animation.js"></script> --}}
     @if (session('status'))
         <script>
             alert("{{ session('status') }} ");
