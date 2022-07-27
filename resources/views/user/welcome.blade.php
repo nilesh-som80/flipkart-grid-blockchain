@@ -141,14 +141,14 @@
                                             Cart</span></a>
                                 </div>
                             </div>
-                        @else
+                        {{-- @else
                             <div class="d-flex align-items-center text-white font-size-2 text-lh-sm position-relative">
                                 <i class="flaticon-icon-126515 font-size-4" style="color:white!important;"></i>
                                 <div class="ml-2">
                                     <a href="/signin"><span class="font-size-3" style="color:white!important;">My
                                             Cart</span></a>
                                 </div>
-                            </div>
+                            </div> --}}
                         @endauth
                     </a>
 
