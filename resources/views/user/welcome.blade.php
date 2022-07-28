@@ -93,7 +93,7 @@
                         <div class="input-group input-group-borderless w-100 searchBar">
                             <input type="text" class="form-control bg-gray-200 bg-focus__1" style="background-color: rgb(251 242 232);
                                 border-bottom-left-radius: 49px; border-top-left-radius: 49px; flex:0; min-width: 235px; background-color: #252158;
-                                " placeholder="Search for books by keyword" id="token" name="keyword">
+                                " placeholder="Enter NFT Token and Get the Book Detail" id="token" name="keyword">
                             <div class="input-group-append">
                                 <button class="btn btn-primary px-3 py-2 bg-color-nav" style=" z-index:456;    border-radius: 42px;
                                 position: relative; z-index:19;
@@ -287,7 +287,7 @@
         <div class="container">
             <div class="pt-5 pb-5">
                 <div class="bg-img-hero img-fluid rounded-md">
-                    <section class="shooting-star">
+                    {{-- <section class="shooting-star">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -298,7 +298,7 @@
                         <span></span>
                         <span></span>
                         <span></span>
-                    </section>
+                    </section> --}}
                     <div class="js-slick-carousel u-slick"
                         data-pagi-classes="d-lg-none text-center u-slick__pagination mt-5 position-absolute left-0 right-0"
                         data-arrows-classes="d-none d-lg-block u-slick__arrow u-slick__arrow--v4 u-slick__arrow-centered--y"
