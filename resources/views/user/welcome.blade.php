@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>E-Carnival | Book Fair</title>
+    <title>Flipkart Grid | Book Fair</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -69,7 +69,8 @@
                 <div class="site-branding pr-7">
                     <a href="/" class="d-block mb-1">
                         <div class="flex-horizontal">
-                            <img src="/assets/images/logo_Ecarnival.png" alt="" style=" height: 76px; width: 250px; ">
+                            {{-- <img src="/assets/images/logo_Ecarnival.png" alt="" style=" height: 76px; width: 250px; "> --}}
+                            <i>Flipkart Grid</i>
                         </div>
                     </a>
                 </div>
@@ -219,7 +220,7 @@
                         <div class="u-sidebar__content u-header-sidebar__content">
                             <header
                                 class="border-bottom px-4 px-md-5 py-4 d-flex align-items-center justify-content-between">
-                                <h2 class="font-size-3 mb-0">E-CARNIVAL BOOK FAIR</h2>
+                                <h2 class="font-size-3 mb-0">Flipkart Grid</h2>
                                 <div class="d-flex align-items-center">
                                     <button type="button" class="close ml-auto" aria-controls="sidebarContent2"
                                         aria-haspopup="true" aria-expanded="false" data-unfold-event="click"
@@ -313,10 +314,10 @@
                                             EDITORS’</p> --}}
                                         <h2 class="font-size-15 mb-3 pb-1" style="color: white;"
                                             data-scs-animation-in="fadeInUp" data-scs-animation-delay="300">
-                                            <span class="hero__title-line-1 font-weight-normal d-block">Book Fair <br>
-                                                E-Carnival</span>
-                                            <span class="hero__title-line-2 font-weight-bold d-block">16 - 26
-                                                August</span>
+                                            <span class="hero__title-line-1 font-weight-normal d-block">Flipkart Grid 4.0 <br>
+                                                Blockchain Type</span>
+                                            {{-- <span class="hero__title-line-2 font-weight-bold d-block">16 - 26
+                                                August</span> --}}
                                         </h2>
                                         <a href="" class="banner_btn btn btn-wide bg-dark text-white rounded-xs"
                                             data-scs-animation-in="fadeInLeft" data-scs-animation-delay="400"
@@ -326,14 +327,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="px-4 px-md-6 px-lg-7 px-xl-10 d-flex min-height-530">
+                        {{-- <div class="px-4 px-md-6 px-lg-7 px-xl-10 d-flex min-height-530">
                             <div class="max-width-565 my-auto">
                                 <div class="media">
-                                    <div class="media-body align-self-center mb-4 mb-lg-0">
+                                    <div class="media-body align-self-center mb-4 mb-lg-0"> --}}
                                         {{-- <p class="banner__pretitle text-uppercase text-gray-400 font-weight-bold mb-2"
                                             data-scs-animation-in="fadeInUp" data-scs-animation-delay="200">THE BOOKWORM
                                             EDITORS’</p> --}}
-                                        <h2 class="font-size-15 mb-3 pb-1" style="color: white;"
+                                        {{-- <h2 class="font-size-15 mb-3 pb-1" style="color: white;"
                                             data-scs-animation-in="fadeInUp" data-scs-animation-delay="300">
                                             <span class="hero__title-line-1 font-weight-normal d-block">Feature Books
                                                 Of</span>
@@ -346,7 +347,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div>
@@ -467,14 +468,13 @@
 
                 <div class="row" style="
                     width: 80%;
-                    padding-left: 30px;
                 ">
-                    <div class="col-lg-4 mb-lg-0">
-                        <div class="pb-6 d-flex flex-column">
-                            <a href="/index.html" class="d-inline-block mb-5">
+                    <div class="">
+                        <div class="">
+                            <a href="/index.html" class="">
                                 <div class="flex-horizontal">
-                                    <img src="/assets/img/E_cellLogo.png" alt="" style=" height: 50px; width: 50px; ">
-                                    <h4 style="margin: 0; padding-left: 5px;">Aditya Niranjan Mishra , Nilesh Sandeep Singh , Prateek Jain and Sandeep Raghuvanshi</h4>
+                                    {{-- <img src="/assets/img/E_cellLogo.png" alt="" style=" height: 50px; width: 50px; "> --}}
+                                    <h4 style="margin: 0; padding-left: 5px;">Aditya Niranjan Mishra(191112459) <br> Prateek Jain (191114258) <br> Sandeep Raghuvanshi (191112441) <br> Nilesh Sandeep Singh (191119080)</h4>
 
                                 </div>
                             </a>
@@ -589,7 +589,7 @@
                 <div class="container" style="max-width: 296px;">
                     <div class="d-lg-flex text-center text-lg-left justify-content-between align-items-center"
                         style="color: #ffffff!important">
-                        <p class="mb-3 mb-lg-0 font-size-2">©2021 Aditya Nilesh Sandeep and Prateek </p>
+                        <p class="">©2021 Aditya Sandeep Nilesh and Prateek </p>
                     </div>
                 </div>
             </div>

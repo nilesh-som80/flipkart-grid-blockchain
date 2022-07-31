@@ -1,7 +1,8 @@
 <footer style="overflow-x: hidden;">
     <div class="border-top space-top-3"
         style="border: 0!important; display: flex; flex-direction:column; justify-content: center">
-        <div class="border-bottom pb-5 space-bottom-lg-3" style="border: 0!important; display: flex;
+        <div class="border-bottom pb-5 space-bottom-lg-3"
+            style="border: 0!important; display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;">
@@ -44,7 +45,8 @@
                     <div class="pb-6 d-flex flex-column">
                         <a href="/index.html" class="d-inline-block mb-5">
                             <div class="flex-horizontal">
-                                <img src="/assets/img/E_cellLogo.png" alt="" style=" height: 50px; width: 50px; ">
+                                <img src="/assets/img/E_cellLogo.png" alt=""
+                                    style=" height: 50px; width: 50px; ">
                                 <h4 style="margin: 0; padding-left: 5px;">E-Cell MANIT</h4>
 
                             </div>
@@ -99,7 +101,8 @@
                                 href="/about">About</a>
                         </li>
                         <li class="pb-2">
-                            <a class="widgets-hover transition-3d-hover font-size-2 link-black-100" href="/faq">FAQ</a>
+                            <a class="widgets-hover transition-3d-hover font-size-2 link-black-100"
+                                href="/faq">FAQ</a>
                         </li>
                         <li class="pb-2">
                             <a class="widgets-hover transition-3d-hover font-size-2 link-black-100"
@@ -232,10 +235,15 @@
     });
 </script>
 <script>
-    $("#submit").click(function(event){
+    $("#submit").click(function(event) {
         event.preventDefault();
         keyword = $("#keyword").val();
         window.location.assign(`/books?keyword=${keyword}`);
+    })
+    $("#submittoken").click(function(event) {
+        event.preventDefault();
+        token = $("#token").val();
+        window.location.assign(`/books_by_token?token=${token}`);
     })
 </script>
 <style>
@@ -256,5 +264,4 @@
     .space-top-1 {
         padding-top: 8rem !important;
     }
-
 </style>

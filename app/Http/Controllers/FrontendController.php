@@ -437,14 +437,17 @@ class FrontendController extends Controller
     }
     public function book_by_token(Request $request)
     {
+        // dd($request->token);
         if (!$request->token) {
             return redirect()->intended('/');
         }
-        $book_id = ProductNFT::where('token', $request->keyword)
+        $book_id = ProductNFT::where('token', $request->token)
             ->first();
+        // dd($book_id);
         if ($book_id) {
-            $data = Book::where('id', $book_id->book_id)
+            $data = Book::where('book_id', $book_id->book_id)
                 ->get();
+            // dd($data);
             return view('user.books', compact('data'));
 
         } else {

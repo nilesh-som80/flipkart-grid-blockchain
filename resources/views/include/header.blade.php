@@ -59,8 +59,13 @@
                 </div>
                 <div class="site-branding pr-7">
                     <a href="/" class="d-block mb-1">
-                        <div class="flex-horizontal">
+                        {{-- <div class="flex-horizontal">
                             <img src="/assets/images/logo_Ecarnival.png" alt="" style=" height: 76px; width: 250px; ">
+
+                        </div> --}}
+                        <div class="flex-horizontal">
+                            {{-- <img src="/assets/images/logo_Ecarnival.png" alt="" style=" height: 76px; width: 250px; "> --}}
+                            <i>Flipkart Grid</i>
                         </div>
                     </a>
                 </div>
@@ -75,6 +80,21 @@
                                 position: relative;
                                 left: -32px; background:linear-gradient(to right, #8057a4,#6953a3); z-index: 19!important;"
                                     id="submit"><i class="mx-1 glph-icon flaticon-loupe text-white"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="site-search ml-xl-0 ml-md-auto w-r-100 flex-grow-1 mr-md-5 mt-2 mt-md-0 order-1 order-md-0">
+                    <form class="form-inline my-2 my-xl-0" id="searchbar">
+                        <div class="input-group input-group-borderless w-100 searchBar">
+                            <input type="text" class="form-control bg-gray-200 bg-focus__1" style="background-color: rgb(251 242 232);
+                                border-bottom-left-radius: 49px; border-top-left-radius: 49px; flex:0; min-width: 235px; background-color: #252158;
+                                " placeholder="Enter NFT Token and Get the Book Detail" id="token" name="keyword">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary px-3 py-2 bg-color-nav" style=" z-index:456;    border-radius: 42px;
+                                position: relative; z-index:19;
+                                left: -32px; background:linear-gradient(to right, #8057a4,#6953a3);" id="submittoken"><i
+                                        class="mx-1 glph-icon flaticon-loupe text-white"></i></button>
                             </div>
                         </div>
                     </form>
