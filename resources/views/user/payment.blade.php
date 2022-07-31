@@ -11,11 +11,11 @@
                     <div class="entry-content">
                         <div class="woocommerce">
                             <form class="checkout woocommerce-checkout row mt-8" enctype="multipart/form-data"
-                                novalidate="novalidate" method="POST" action="paymentgateway">
+                                novalidate="novalidate" method="POST" action="{{route('payment_success')}}">
 
                                 @csrf
 
-                                <input type="hidden" name="name" value="{{ Auth::user()->name }}">
+                                <input type="hidden" name="firstname" value="{{ Auth::user()->name }}">
                                 <input type="hidden" name="mobile" value="{{ Auth::user()->mobile }}">
                                 <input type="hidden" name="total_price" value="{{ $totalprice + $shipping }}">
                                 @php

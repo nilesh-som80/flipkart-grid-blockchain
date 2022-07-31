@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\ProductNFT;
 use App\Models\SellersBook;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\TransactionItems;
 use App\Models\TransactionDetails;
@@ -28,7 +30,7 @@ class PayUMoneyController extends Controller
         $request->session()->put('order_id', $request->order_id);
         // dd(Session::get('transaction_id'));
         $parameters = [
-            'key' => 'tEl0If',
+            'key' => 'H0ABj0xB',
             'txnid' => $transaction_id,
             'surl' => url('/payumoney/success'),// this is the name of my route
             'furl' => url('/payumoney/failure'),//this is the name of my route
@@ -36,7 +38,7 @@ class PayUMoneyController extends Controller
             'email' => Auth::user()->email,
             'phone' => Auth::user()->mobile,
             'productinfo' => $request->order_id,
-            'service_provider'=>'E-Cell MANIT',
+            'service_provider'=>'Nilesh',
             'amount' => $request->total_price,
     ];
         // dd($parameters);
@@ -45,7 +47,8 @@ class PayUMoneyController extends Controller
     }
     public function success(Request $request){
         // dd($request);
-        $transaction_id = $request->txnid;
+        // $transaction_id = $request->txnid;
+        $transaction_id = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
         $transaction = TransactionDetails::where('bill_number', $transaction_id)->first();
         $user = User::where('name',$request->firstname)->first();
         if($transaction)
@@ -53,13 +56,13 @@ class PayUMoneyController extends Controller
             Auth::loginUsingId($user->id);
             return "Bill Number already exists";
         }
-        $order = explode(' ',$request->productinfo);
+        $order = explode(',',$request->order_id);
         $order_1 = Order::where('order_id', $order[0])->first();
         Auth::loginUsingId($user->id);
         TransactionDetails::create([
             'bill_number'=>$transaction_id,
             'user_id' => $user->user_id,
-            'amount' => $request->amount,
+            'amount' => $request->total_price,
             'address_id' => $order_1->address_id,
         ]);
         foreach ($order as $od) {
@@ -77,28 +80,43 @@ class PayUMoneyController extends Controller
 
             $seller_book->update(['current_stock' => $stock - 1]);
 
+            ProductNFT::create(
+                [
+                    "book_id" => $order_2->book_id,
+                    "token" => Str::random(50),
+                    "user_id" => $order_2->user_id
+                ]
+            );
+
+
         }
         $user_data = TransactionDetails::where('bill_number', $transaction_id)
         ->join('user_addresses', 'user_addresses.address_id', '=', 'transaction_details.address_id')
         ->first();
-        $data = TransactionDetails::where(['transaction_details.user_id'=> $user->user_id , 'transaction_details.bill_number' => $transaction_id])
+        $data = TransactionDetails::where(['transaction_details.user_id'=> $user->user_id , 'transaction_details.bill_number' => $transaction_id , 'product_n_f_t_s.user_id' =>$user->user_id])
         ->join('transaction_items','transaction_details.bill_number', '=', 'transaction_items.bill_number')
         ->join('orders','transaction_items.order_id', '=', 'orders.order_id')
+        ->join('product_n_f_t_s','orders.book_id','=','product_n_f_t_s.book_id')
         ->leftJoin('books as b', 'b.book_id', '=', 'orders.book_id')
         ->selectRaw("transaction_details.*")
         ->selectRaw('b.*')
         ->selectRaw('orders.*')
+        ->selectRaw('product_n_f_t_s.*')
         ->selectRaw('orders.id as od_id')
+        ->groupBy("b.book_id")
         ->get();
+        // ->toSql();
+        // echo $data , $user->user_id , $transaction_id ;die;
         $totalprice = TransactionDetails::where(['transaction_details.user_id'=> $user->user_id , 'transaction_details.bill_number' => $transaction_id])
         ->join('transaction_items','transaction_details.bill_number', '=', 'transaction_items.bill_number')
         ->join('orders','transaction_items.order_id', '=', 'orders.order_id')
+
         ->selectRaw('SUM(orders.selling_price) as total_price')
         ->groupBy('orders.id')
         ->first();
         $totalprice = $totalprice->total_price;
         $shipping = $user_data->amount - $totalprice;
-        Mail::to($user->email)->send(new OrderConfirmationMail($data,$user_data,$totalprice, $shipping));
+        // Mail::to($user->email)->send(new OrderConfirmationMail($data,$user_data,$totalprice, $shipping));
         // dd($totalprice);
         return view('user.order_received', compact('data', 'user_data', 'totalprice'));
         // return(new OrderConfirmationMail($data,$user_data,$totalprice));

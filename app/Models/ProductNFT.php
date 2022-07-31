@@ -11,6 +11,7 @@ class ProductNFT extends Model
 
     protected $fillable = [
         "book_id",
-        "token"
+        "token",
+        "user_id"
     ];
 }

@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
-use App\Models\User;
-use App\Models\Order;
 use App\Models\Author;
+use App\Models\AuthorsOfBook;
+use App\Models\Book;
+use App\Models\BookWithCategory;
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\ProductNFT;
 use App\Models\SellersBook;
+use App\Models\TransactionDetails;
+use App\Models\TransactionItems;
+use App\Models\User;
 use App\Models\UserAddress;
 use Illuminate\Http\Request;
-use App\Models\AuthorsOfBook;
-use App\Models\BookWithCategory;
-use App\Models\TransactionItems;
-use App\Models\TransactionDetails;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
@@ -41,9 +40,9 @@ class FrontendController extends Controller
     public function home()
     {
         $data = Book::where('seller_id', '=', 'BOOK CHOR')
-        ->where('discount_price', '<=', 99)
-        ->inRandomOrder()
-        ->paginate(25);
+            ->where('discount_price', '<=', 99)
+            ->inRandomOrder()
+            ->paginate(25);
         // $data = Book::paginate(20);
         // dd( $data);
 
@@ -79,6 +78,8 @@ class FrontendController extends Controller
             ->groupBy('users.user_id')
             ->where('orders.bought', 'LIKE', "0")
             ->first();
+        // ->toSql();
+        // dd($totalprice);
         if (!$totalprice) {
             $totalprice = 0;
             $shipping = 0;
@@ -89,8 +90,7 @@ class FrontendController extends Controller
         if ($totalprice <= 100) {
             $shipping = 75;
         }
-        if($totalprice >= 1200)
-        {
+        if ($totalprice >= 1200) {
             $shipping = 0;
         }
         // dd($data);
@@ -116,8 +116,7 @@ class FrontendController extends Controller
         if ($totalprice <= 100) {
             $shipping = 75;
         }
-        if($totalprice >= 1200)
-        {
+        if ($totalprice >= 1200) {
             $shipping = 0;
         }
         return view('user.checkout', compact('data', 'totalprice', 'shipping'));
@@ -153,8 +152,7 @@ class FrontendController extends Controller
         if ($totalprice <= 100) {
             $shipping = 75;
         }
-        if($totalprice >= 1200)
-        {
+        if ($totalprice >= 1200) {
             $shipping = 0;
         }
         return view('user.payment', compact('data', 'totalprice', 'address', 'shipping'));
@@ -187,7 +185,7 @@ class FrontendController extends Controller
     }
     public function my_account()
     {
-        $data  = UserAddress::where('user_addresses.user_id', Auth::user()->user_id)->get();
+        $data = UserAddress::where('user_addresses.user_id', Auth::user()->user_id)->get();
         $data_1 = TransactionDetails::where('transaction_details.user_id', Auth::user()->user_id)
             ->join('transaction_items', 'transaction_details.bill_number', '=', 'transaction_items.bill_number')
             ->join('user_addresses', 'user_addresses.address_id', '=', 'transaction_details.address_id')
@@ -210,7 +208,7 @@ class FrontendController extends Controller
     }
     public function book_by_category($id)
     {
-        $data  = Book::where('categories_name', 'LIKE', "%{$id}%")
+        $data = Book::where('categories_name', 'LIKE', "%{$id}%")
             ->paginate(50);
         // ->toSql();
         // echo $data;die;
@@ -218,7 +216,7 @@ class FrontendController extends Controller
     }
     public function book_by_author($id)
     {
-        $data  = AuthorsOfBook::where('authors_of_books.authors_id', $id)
+        $data = AuthorsOfBook::where('authors_of_books.authors_id', $id)
             ->leftJoin('books', 'authors_of_books.book_id', '=', 'books.book_id')
             ->leftJoin('sellers_books', 'sellers_books.book_id', '=', 'books.book_id')
             ->select('books.*')
@@ -272,7 +270,6 @@ class FrontendController extends Controller
         return view('admin.bookwithcategerytable');
     }
     public function categerytable()
-
     {
         $category = Category::all();
 
@@ -367,17 +364,17 @@ class FrontendController extends Controller
     {
         return view('admin.UserAddress');
     }
-    public function  Useraddresstable()
+    public function Useraddresstable()
     {
         $data = UserAddress::join('users', 'users.user_id', '=', 'user_addresses.user_id')->get();
         // dd($data);
         return view('admin.Useraddresstable', compact('data'));
     }
-    public function  TransactionItems()
+    public function TransactionItems()
     {
         return view('admin.transactionItems');
     }
-    public function  redirect(Request $request)
+    public function redirect(Request $request)
     {
         $request['book_id'] = "book_" . rand(1000000000, 9999999999);
         Book::create($request->all());
@@ -388,26 +385,26 @@ class FrontendController extends Controller
 
         return view('admin.choose_author', compact("data", "book_id"));
     }
-    public function  choose_category(Request $request)
+    public function choose_category(Request $request)
     {
         // dd($request);
         foreach ($request->author as $auth) {
             AuthorsOfBook::create([
                 'book_id' => $request->book_id,
-                'authors_id' => $auth
+                'authors_id' => $auth,
             ]);
         }
         $book_id = $request->book_id;
         $data = Category::all();
         return view('admin.choose_category', compact("data", "book_id"));
     }
-    public function  choosing_book_category(Request $request)
+    public function choosing_book_category(Request $request)
     {
         // dd($request);
         foreach ($request->category as $auth) {
             BookWithCategory::create([
                 'book_id' => $request->book_id,
-                'category_id' => $auth
+                'category_id' => $auth,
             ]);
         }
 
@@ -431,10 +428,11 @@ class FrontendController extends Controller
     {
         return view('user.failure');
     }
-    public function view_all_book(){
+    public function view_all_book()
+    {
         $data = Book::paginate(36);
 
-        return view('user.view_all_book',compact('data'));
+        return view('user.view_all_book', compact('data'));
 
     }
     public function book_by_token(Request $request)
@@ -442,17 +440,16 @@ class FrontendController extends Controller
         if (!$request->token) {
             return redirect()->intended('/');
         }
-        $book_id = ProductNFT::where('token' ,$request->keyword)
-        ->first();
-        if($book_id){
-                $data = Book::where('id',$book_id->book_id)
+        $book_id = ProductNFT::where('token', $request->keyword)
+            ->first();
+        if ($book_id) {
+            $data = Book::where('id', $book_id->book_id)
                 ->get();
-                return view('user.books', compact('data'));
+            return view('user.books', compact('data'));
 
-            }
-            else{
-                return redirect()->intended('/');
+        } else {
+            return redirect()->intended('/');
 
-            }
+        }
     }
 }

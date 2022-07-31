@@ -27,8 +27,8 @@ return [
     ],
 
     'payumoney' => [                         // PayUMoney Parameters
-        'merchantKey'  => env('INDIPAY_MERCHANT_KEY', "tEl0If"),
-        'salt'  => env('INDIPAY_SALT', 'PJF6HDix0EsoqzRvAAGhRsRYaercdUFL'),
+        'merchantKey'  => env('INDIPAY_MERCHANT_KEY', "H0ABj0xB"),
+        'salt'  => env('INDIPAY_SALT', 'bQwlzCeTu8'),
         'workingKey' => env('INDIPAY_WORKING_KEY', ''),
 
         // Should be route address for url() function

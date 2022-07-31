@@ -30,12 +30,7 @@ class BookController extends Controller
     {
         $request['book_id'] = "book_" . rand(1000000000, 9999999999);
         Book::create($request->all());
-        ProductNFT::create(
-            [
-                "book_id" => $request->book_id,
-                "token" => Str::random(50),
-            ]
-        );
+       
         return 'New book added';
     }
 

@@ -54,6 +54,7 @@
                                     <div class="d-flex align-items-baseline">
                                         <div>
                                             <h6 class="font-size-2 font-weight-normal mb-1">{{$data->name}}</h6>
+                                            <span class="font-size-2 text-gray-600">NFT : {{$data->token}}</span><br>
                                             <span class="font-size-2 text-gray-600">Seller : {{$data->seller_id}}</span><br>
                                             <span class="font-size-2 text-gray-600">Order ID : {{$data->order_id}}</span>
                                         </div>

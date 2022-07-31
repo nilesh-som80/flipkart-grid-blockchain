@@ -94,7 +94,7 @@ Route::group( ['middleware'=> ['auth','admin'] ],function () {
 
 
 Route::get('/viewAllBooks', [FrontendController::class, 'view_all_book']);
-Route::post('/payumoney/success',[PayUMoneyController::class,'success']);
+Route::post('/payumoney/success',[PayUMoneyController::class,'success'])->name("payment_success");
 Route::post('/payumoney/failure',[PayUMoneyController::class,'failure']);
 
 Route::post('/failure',[FrontendController::class,'failure']);
